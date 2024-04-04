@@ -1,0 +1,7 @@
+.button-play {
+    -fx-graphic: url('media/play.png');
+}
+
+.button-pause {
+    -fx-graphic: url('media/pause.png');
+}

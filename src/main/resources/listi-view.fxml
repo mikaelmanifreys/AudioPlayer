@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import java.net.URL?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="617.0"
+      prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.audioplayer.ListiController">
+    <stylesheets>
+        <URL value="@css/style.css"/>
+    </stylesheets>
+    <ListView fx:id="fxListView" onMouseClicked="#onValidLag" prefHeight="200.0" prefWidth="200.0"/>
+    <ImageView fx:id="myndReitur" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"/>
+    <Label fx:id="lagNafnReitur" prefHeight="18.0" prefWidth="200.0"/>
+    <ProgressBar fx:id="fxProgressBar" prefWidth="200.0" progress="0.0"/>
+    <Button fx:id="fxPlayPause" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onPlayPause"
+            prefHeight="192.0" prefWidth="204.0"/>
+    <Button fx:id="fxHeimButton" mnemonicParsing="false" onAction="#onHeim" text="Heim"/>
+</VBox>
