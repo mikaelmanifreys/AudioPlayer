@@ -1,11 +1,13 @@
 package com.example.audioplayer;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import vinnsla.Askrifandi;
@@ -19,6 +21,8 @@ public class AskrifandiDialog extends Dialog<Askrifandi> {
     public Button fxLoginButton;
     public Askrifandi askrifandi;
     public TextField fxNafnField;
+    public RadioButton fxIslenska3;
+    public RadioButton fxEnska3;
 
     /**
      * Tómur ÁskrifandiDialog smiður
@@ -55,5 +59,15 @@ public class AskrifandiDialog extends Dialog<Askrifandi> {
 
     public static void main(String[] args) {
 
+    }
+
+    public void onIslenskaClicked3(ActionEvent actionEvent) {
+        fxLoginButton.setText("Skrá Inn");
+        fxEnska3.setSelected(false);
+    }
+
+    public void onEnskaClicked3(ActionEvent actionEvent) {
+        fxLoginButton.setText("Log In");
+        fxIslenska3.setSelected(false);
     }
 }

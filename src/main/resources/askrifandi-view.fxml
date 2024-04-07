@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
-<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+<VBox prefHeight="102.0" prefWidth="150.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.audioplayer.AskrifandiDialog">
     <TextField fx:id="fxNafnField"/>
-    <Button fx:id="fxLoginButton" mnemonicParsing="false" text="Skrá inn" onAction="#onLogin"/>
+    <Button fx:id="fxLoginButton" mnemonicParsing="false" onAction="#onLogin" text="Skrá inn"/>
+    <RadioButton fx:id="fxIslenska3" mnemonicParsing="false" text="Íslenska" onAction="#onIslenskaClicked3"
+                 selected="true"/>
+    <RadioButton fx:id="fxEnska3" mnemonicParsing="false" text="Enska" onAction="#onEnskaClicked3"/>
 </VBox>

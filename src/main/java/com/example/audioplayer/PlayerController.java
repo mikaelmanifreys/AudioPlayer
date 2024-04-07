@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import vinnsla.Askrifandi;
@@ -19,6 +21,14 @@ import java.io.IOException;
 public class PlayerController {
     public ListView<Lagalisti> fxLagalistar;
     public Button fxLogInButton;
+    public RadioButton fxIslenska;
+    public RadioButton fxEnska;
+    public boolean LoggedIn;
+
+    public PlayerController() {
+
+    }
+
 
     /**
      * Býr til notanda og setur í label.
@@ -27,6 +37,7 @@ public class PlayerController {
      */
     public void setjaNotanda(Askrifandi askrifandi) {
         fxLogInButton.setText(askrifandi.getNafn());
+        LoggedIn = true;
     }
 
     /**
@@ -38,6 +49,9 @@ public class PlayerController {
         Lagalisti lagalisti1 = new Lagalisti("Lagalisti 1");
         Lagalisti lagalisti2 = new Lagalisti("Lagalisti 2");
         fxLagalistar.getItems().addAll(lagalisti1, lagalisti2);
+        ToggleGroup tungumal = new ToggleGroup();
+        fxEnska.setToggleGroup(tungumal);
+        fxIslenska.setToggleGroup(tungumal);
     }
 
 
@@ -84,5 +98,23 @@ public class PlayerController {
             e.printStackTrace();
         }
     }
+
+    public boolean isIslenskaSelected() {
+        return fxIslenska.isSelected();
+    }
+
+    public void onIslenskaClicked(ActionEvent actionEvent) {
+        if (!LoggedIn) {
+            fxLogInButton.setText("Skrá Inn");
+        }
+    }
+
+
+    public void onEnskaClicked(ActionEvent actionEvent) {
+        if (!LoggedIn) {
+            fxLogInButton.setText("Log In");
+        }
+    }
 }
+
 

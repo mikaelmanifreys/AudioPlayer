@@ -4,10 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ProgressBar;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -30,22 +27,34 @@ public class ListiController {
     public ImageView myndReitur;
     public Label lagNafnReitur;
     public Button fxHeimButton;
+    public RadioButton fxIslenska2;
+    public RadioButton fxEnska2;
     private Lag validLag;
     @FXML
     private ListView<Lag> fxListView;
     private MediaPlayer player;
     private Lagalisti valinnListi;
+    public PlayerController playerController;
 
 
     public static void main(String[] args) {
 
     }
 
+    public void setPlayerController(PlayerController playerController) {
+        this.playerController = playerController;
+    }
+
     /**
      * Setur upp listi-view.fxml.
      */
     public void initialize() {
+        fxIslenska2.setSelected(true);
+        ToggleGroup tungumal = new ToggleGroup();
+        fxEnska2.setToggleGroup(tungumal);
+        fxIslenska2.setToggleGroup(tungumal);
         fxPlayPause.getStyleClass().add("button-play");
+
     }
 
     /**
@@ -128,7 +137,6 @@ public class ListiController {
         }
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/heima-view.fxml"));
-
             Stage stage = (Stage) fxHeimButton.getScene().getWindow();
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
@@ -206,5 +214,18 @@ public class ListiController {
         if (player != null) {
             player.play();
         }
+    }
+
+    public boolean isIslenskaSelected() {
+        return playerController.isIslenskaSelected();
+    }
+
+    public void onEnskaClicked2(ActionEvent actionEvent) {
+        fxHeimButton.setText("Home");
+    }
+
+    public void onIslenskaClicked2(ActionEvent actionEvent) {
+        fxHeimButton.setText("Heim");
+
     }
 }
