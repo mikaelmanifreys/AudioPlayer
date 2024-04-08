@@ -15,7 +15,6 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import vinnsla.Lag;
-import vinnsla.Lagalisti;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -38,7 +37,6 @@ public class NyLögController {
     public RadioButton fxEnskaTakki;
 
     private MediaPlayer player;
-    private Lagalisti lagalisti;
     private Lag lag;
 
     public ObservableList<Lag> listi = FXCollections.observableArrayList();
@@ -56,10 +54,6 @@ public class NyLögController {
         fxEnskaTakki.setToggleGroup(tungumal);
         fxIslenskaTakki.setToggleGroup(tungumal);
 
-    }
-
-    private ObservableList<Lag> getList() {
-        return listi;
     }
 
     /**
