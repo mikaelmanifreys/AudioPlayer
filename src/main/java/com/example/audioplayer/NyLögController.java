@@ -18,6 +18,7 @@ import vinnsla.Lag;
 
 import java.io.IOException;
 import java.util.Objects;
+import java.util.Random;
 
 public class NyLögController {
 
@@ -35,6 +36,7 @@ public class NyLögController {
     private ListView<Lag> fxListView;
     public RadioButton fxIslenskaTakki;
     public RadioButton fxEnskaTakki;
+    public CheckBox fxShuffle;
 
     private MediaPlayer player;
     private Lag lag;
@@ -157,17 +159,29 @@ public class NyLögController {
      */
 
     public void naestaLag() {
-        int currentIndex = fxListView.getSelectionModel().getSelectedIndex();
-        int newIndex = currentIndex + 1;
-        if (newIndex >= fxListView.getItems().size()) {
-            newIndex = 0;
-        }
-        fxListView.getSelectionModel().select(newIndex);
-        Lag naestaLag = fxListView.getItems().get(newIndex);
-        setjaPlayer(naestaLag);
-        setjaMynd(fxMynd, lag.getMyndNafn());
-        if (player != null) {
-            player.play();
+        if (!fxShuffle.isSelected()) {
+            int currentIndex = fxListView.getSelectionModel().getSelectedIndex();
+            int newIndex = currentIndex + 1;
+            if (newIndex >= fxListView.getItems().size()) {
+                newIndex = 0;
+            }
+            fxListView.getSelectionModel().select(newIndex);
+            Lag naestaLag = fxListView.getItems().get(newIndex);
+            setjaPlayer(naestaLag);
+            setjaMynd(fxMynd, lag.getMyndNafn());
+            if (player != null) {
+                player.play();
+            }
+        } else {
+            Random rand = new Random();
+            int newIndex = rand.nextInt(fxListView.getItems().size());
+            fxListView.getSelectionModel().select(newIndex);
+            Lag naestaLag = fxListView.getItems().get(newIndex);
+            setjaPlayer(naestaLag);
+            setjaMynd(fxMynd, lag.getMyndNafn());
+            if (player != null) {
+                player.play();
+            }
         }
     }
 
