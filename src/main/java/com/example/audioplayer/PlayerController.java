@@ -27,10 +27,6 @@ public class PlayerController {
 
     public Button fxNyLog;
 
-    public PlayerController() {
-
-    }
-
 
     /**
      * Býr til notanda og setur í label.

@@ -22,8 +22,4 @@ public class Askrifandi {
         return nafn;
     }
 
-
-    public static void main(String[] args) {
-
-    }
 }

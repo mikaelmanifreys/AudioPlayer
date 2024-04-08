@@ -25,13 +25,6 @@ public class AskrifandiDialog extends Dialog<Askrifandi> {
     public RadioButton fxEnska3;
 
     /**
-     * Tómur ÁskrifandiDialog smiður
-     */
-    public AskrifandiDialog() {
-
-    }
-
-    /**
      * Aðferð virkjast þegar ýtt er á Skrá inn takkann. Virkjar heima-view.fxml
      */
     @FXML
@@ -55,10 +48,6 @@ public class AskrifandiDialog extends Dialog<Askrifandi> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 
     public void onIslenskaClicked3(ActionEvent actionEvent) {

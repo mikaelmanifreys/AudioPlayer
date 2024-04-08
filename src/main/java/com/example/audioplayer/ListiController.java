@@ -37,10 +37,6 @@ public class ListiController {
     public PlayerController playerController;
 
 
-    public static void main(String[] args) {
-
-    }
-
     public void setPlayerController(PlayerController playerController) {
         this.playerController = playerController;
     }

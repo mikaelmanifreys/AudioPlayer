@@ -49,8 +49,4 @@ public class Lagalisti {
         }
 
     }
-
-    public static void main(String[] args) {
-
-    }
 }
