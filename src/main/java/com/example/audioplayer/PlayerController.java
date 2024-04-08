@@ -26,6 +26,7 @@ public class PlayerController {
     public boolean LoggedIn;
 
     public Button fxNyLog;
+    public Button fxNyrListi;
 
 
     /**
@@ -50,6 +51,14 @@ public class PlayerController {
         ToggleGroup tungumal = new ToggleGroup();
         fxEnska.setToggleGroup(tungumal);
         fxIslenska.setToggleGroup(tungumal);
+    }
+
+    public void onNyrListi(){
+        fxLagalistar.getItems().clear();
+        Lagalisti lagalisti1 = new Lagalisti("Lagalisti 1");
+        Lagalisti lagalisti2 = new Lagalisti("Lagalisti 2");
+        Lagalisti lagalisti3 = new Lagalisti("Lagalisti 3");
+        fxLagalistar.getItems().addAll(lagalisti1, lagalisti2, lagalisti3);
     }
 
 

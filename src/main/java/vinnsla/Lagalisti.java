@@ -46,6 +46,10 @@ public class Lagalisti {
         } else if (this.nafn.equals("Lagalisti 2")) {
             listi.add(new Lag("/css/media/Viðstöndumhérenn.mp3", "Við stöndum hér enn", 234, "/css/media/LjótuHálfvitarnir.jpg"));
             listi.add(new Lag("/css/media/Lalalagið.mp3", "Lala lagið", 271, "/css/media/Hvanndalsbræður.jpg"));
+        } else if (this.nafn.equals("Lagalisti 3")) {
+            listi.add(new Lag("/css/media/All IN.mp3", "ALL IN", 159, "/css/media/herra.jpeg"));
+            listi.add(new Lag("/css/media/Skína.mp3", "Skína", 180, "/css/media/skina.jpeg"));
+
         }
 
     }

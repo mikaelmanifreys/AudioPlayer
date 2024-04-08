@@ -13,6 +13,7 @@
     <Button fx:id="fxLogInButton" mnemonicParsing="false" onAction="#LogInButtonClicked" text="Skrá inn" />
    <Button fx:id="fxNyLog" mnemonicParsing="false" onAction="#onNylog" text="Ný Lög" />
     <ListView fx:id="fxLagalistar" onMouseClicked="#onVeljaLista" prefHeight="368.0" prefWidth="390.0" />
+   <Button fx:id="fxNyrListi" onAction="#onNyrListi" mnemonicParsing="false" text="+" />
     <RadioButton fx:id="fxIslenska" mnemonicParsing="false" onAction="#onIslenskaClicked" selected="true" text="Íslenska" />
     <RadioButton fx:id="fxEnska" mnemonicParsing="false" onAction="#onEnskaClicked" text="Enska" />
 </VBox>
