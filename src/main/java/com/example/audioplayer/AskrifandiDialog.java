@@ -20,6 +20,8 @@ public class AskrifandiDialog extends Dialog<Askrifandi> {
     public TextField fxNafnField;
     public RadioButton fxIslenska3;
     public RadioButton fxEnska3;
+    @FXML
+    private TextField fxLykilorð;
 
     /**
      * Tómur ÁskrifandiDialog smiður
@@ -40,7 +42,7 @@ public class AskrifandiDialog extends Dialog<Askrifandi> {
     @FXML
     private void onLogin() {
         boolean loginSuccess;
-        loginSuccess = !fxNafnField.getText().isEmpty();
+        loginSuccess = !fxNafnField.getText().isEmpty() && !fxLykilorð.getText().isEmpty();
         if (loginSuccess) {
             askrifandi = new Askrifandi(fxNafnField.getText());
             close();
@@ -60,15 +62,19 @@ public class AskrifandiDialog extends Dialog<Askrifandi> {
         }
     }
 
-    public static void main(String[] args) {
-
-    }
 
     public void onIslenskaClicked3(ActionEvent actionEvent) {
         fxLoginButton.setText("Skrá Inn");
+        fxNafnField.setPromptText("Notendanafn");
+        fxLykilorð.setPromptText("Lykilorð");
+
+
     }
 
     public void onEnskaClicked3(ActionEvent actionEvent) {
         fxLoginButton.setText("Log In");
+        fxNafnField.setPromptText("Username");
+        fxLykilorð.setPromptText("Password");
+
     }
 }
