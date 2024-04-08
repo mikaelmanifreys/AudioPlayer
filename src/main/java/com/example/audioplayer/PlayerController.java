@@ -119,6 +119,7 @@ public class PlayerController {
     }
 
     public void onIslenskaClicked(ActionEvent actionEvent) {
+        fxNyLog.setText("Ný Lög");
         if (!LoggedIn) {
             fxLogInButton.setText("Skrá Inn");
         }
@@ -126,6 +127,7 @@ public class PlayerController {
 
 
     public void onEnskaClicked(ActionEvent actionEvent) {
+        fxNyLog.setText("New Songs");
         if (!LoggedIn) {
             fxLogInButton.setText("Log In");
         }
