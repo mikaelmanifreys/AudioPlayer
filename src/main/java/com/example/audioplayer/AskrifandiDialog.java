@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import vinnsla.Askrifandi;
 
@@ -29,6 +26,12 @@ public class AskrifandiDialog extends Dialog<Askrifandi> {
      */
     public AskrifandiDialog() {
 
+    }
+
+    public void initialize() {
+        ToggleGroup tungumal = new ToggleGroup();
+        fxEnska3.setToggleGroup(tungumal);
+        fxIslenska3.setToggleGroup(tungumal);
     }
 
     /**
@@ -63,11 +66,9 @@ public class AskrifandiDialog extends Dialog<Askrifandi> {
 
     public void onIslenskaClicked3(ActionEvent actionEvent) {
         fxLoginButton.setText("Skrá Inn");
-        fxEnska3.setSelected(false);
     }
 
     public void onEnskaClicked3(ActionEvent actionEvent) {
         fxLoginButton.setText("Log In");
-        fxIslenska3.setSelected(false);
     }
 }

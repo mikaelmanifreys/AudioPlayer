@@ -29,6 +29,7 @@ public class ListiController {
     public Button fxHeimButton;
     public RadioButton fxIslenska2;
     public RadioButton fxEnska2;
+    public CheckBox fxShuffle;
     private Lag validLag;
     @FXML
     private ListView<Lag> fxListView;
@@ -227,5 +228,20 @@ public class ListiController {
     public void onIslenskaClicked2(ActionEvent actionEvent) {
         fxHeimButton.setText("Heim");
 
+    }
+
+    public void onShuffleClicked(ActionEvent actionEvent) {
+        int currentIndex = fxListView.getSelectionModel().getSelectedIndex();
+        int newIndex = currentIndex + 1;
+        if (newIndex >= fxListView.getItems().size()) {
+            newIndex = 0;
+        }
+        fxListView.getSelectionModel().select(newIndex);
+        Lag naestaLag = fxListView.getItems().get(newIndex);
+        setjaPlayer(naestaLag);
+        setjaMynd(myndReitur, validLag.getMyndNafn());
+        if (player != null) {
+            player.play();
+        }
     }
 }

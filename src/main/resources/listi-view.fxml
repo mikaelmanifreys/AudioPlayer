@@ -17,7 +17,7 @@
     <Button fx:id="fxPlayPause" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onPlayPause"
             prefHeight="192.0" prefWidth="204.0"/>
     <Button fx:id="fxHeimButton" mnemonicParsing="false" onAction="#onHeim" text="Heim"/>
-    <RadioButton fx:id="fxIslenska2" text="Íslenska"
-                 onAction="#onIslenskaClicked2"/>
-    <RadioButton fx:id="fxEnska2" text="Enska" onAction="#onEnskaClicked2"/>
+    <RadioButton fx:id="fxIslenska2" onAction="#onIslenskaClicked2" text="Íslenska"/>
+    <RadioButton fx:id="fxEnska2" onAction="#onEnskaClicked2" text="Enska"/>
+    <CheckBox fx:id="fxShuffle" mnemonicParsing="false" text="Shuffle" onAction="#onShuffleClicked"/>
 </VBox>
