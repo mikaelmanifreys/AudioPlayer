@@ -19,7 +19,4 @@ public class ViewSwitcher {
         stage.show();
     }
 
-    public static void main(String[] args) {
-
-    }
 }

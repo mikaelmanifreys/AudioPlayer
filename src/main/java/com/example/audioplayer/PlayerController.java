@@ -25,9 +25,7 @@ public class PlayerController {
     public RadioButton fxEnska;
     public boolean LoggedIn;
 
-    public PlayerController() {
-
-    }
+    public Button fxNyLog;
 
 
     /**
@@ -99,11 +97,29 @@ public class PlayerController {
         }
     }
 
+    public void onNylog(ActionEvent actionEvent){
+        Lagalisti nyLogListi = new Lagalisti("Ný Lög");
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/nyLog.fxml"));
+
+            Scene scene = new Scene(fxmlLoader.load(), 600, 604);
+            Stage stage = (Stage) fxNyLog.getScene().getWindow();
+            stage.setTitle("Ný Lög");
+            stage.setScene(scene);
+            ListiController controller = fxmlLoader.getController();
+            controller.setValinnListi(nyLogListi);
+            stage.show();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
     public boolean isIslenskaSelected() {
         return fxIslenska.isSelected();
     }
 
     public void onIslenskaClicked(ActionEvent actionEvent) {
+        fxNyLog.setText("Ný Lög");
         if (!LoggedIn) {
             fxLogInButton.setText("Skrá Inn");
         }
@@ -111,6 +127,7 @@ public class PlayerController {
 
 
     public void onEnskaClicked(ActionEvent actionEvent) {
+        fxNyLog.setText("New Songs");
         if (!LoggedIn) {
             fxLogInButton.setText("Log In");
         }

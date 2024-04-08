@@ -21,7 +21,7 @@ public class PlayerApplication extends Application {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/heima-view.fxml"));
 
-            Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+            Scene scene = new Scene(fxmlLoader.load(), 320, 340);
             stage.setTitle("Heimaskjár");
             stage.setScene(scene);
             stage.show();

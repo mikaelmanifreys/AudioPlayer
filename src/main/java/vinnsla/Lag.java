@@ -57,8 +57,4 @@ public class Lag {
         return myndNafn;
     }
 
-
-    public static void main(String[] args) {
-
-    }
 }

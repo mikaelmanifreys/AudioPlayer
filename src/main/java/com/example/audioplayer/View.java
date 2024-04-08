@@ -20,10 +20,6 @@ public class View {
         this.title = title;
     }
 
-    public static void main(String[] args) {
-
-    }
-
     /**
      * @return titlinum sem á að setja á topp gluggans
      */
