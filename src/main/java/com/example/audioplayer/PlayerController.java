@@ -25,6 +25,8 @@ public class PlayerController {
     public RadioButton fxEnska;
     public boolean LoggedIn;
 
+    public Button fxNyLog;
+
     public PlayerController() {
 
     }
@@ -95,6 +97,23 @@ public class PlayerController {
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void onNylog(ActionEvent actionEvent){
+        Lagalisti nyLogListi = new Lagalisti("Ný Lög");
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/nyLog.fxml"));
+
+            Scene scene = new Scene(fxmlLoader.load(), 600, 604);
+            Stage stage = (Stage) fxNyLog.getScene().getWindow();
+            stage.setTitle("Ný Lög");
+            stage.setScene(scene);
+            ListiController controller = fxmlLoader.getController();
+            controller.setValinnListi(nyLogListi);
+            stage.show();
+        }catch (IOException e){
             e.printStackTrace();
         }
     }
