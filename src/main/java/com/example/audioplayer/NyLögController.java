@@ -45,6 +45,9 @@ public class NyLögController {
     public ObservableList<Lag> listi = FXCollections.observableArrayList();
 
 
+    /**
+     * Setur lögin á listann og mynd á play/pause
+     */
     public void initialize() {
         logALista();
         fxPlayPause.getStyleClass().add("button-play");
@@ -56,7 +59,9 @@ public class NyLögController {
         return listi;
     }
 
-
+    /**
+     * Bætir nýjum lögum á lista
+     */
     private void logALista(){
         listi.add(new Lag("/css/media/All IN.mp3", "ALL IN", 159, "/css/media/herra.jpeg"));
         listi.add(new Lag("/css/media/Skína.mp3", "Skína", 180, "/css/media/skina.jpeg"));
@@ -64,17 +69,10 @@ public class NyLögController {
         listi.add(new Lag("/css/media/Fjöllin hafa vakað.mp3", "Fjöllin hafa vakað", 224, "/css/media/ego.jpeg"));
     }
 
-    public void setValinnListi(Lagalisti listi) {
-        this.lagalisti = listi;
-        uppfaeraLista();
-    }
-
-    public void uppfaeraLista() {
-        if (lagalisti != null && fxListView != null) {
-            fxListView.setItems(getList());
-        }
-    }
-
+    /**
+     * spilar lag þegar það er smellt 2x
+     * @param mouseEvent
+     */
     @FXML
     public void onValidLag(MouseEvent mouseEvent) {
         if (mouseEvent.getClickCount() == 2) {
@@ -83,9 +81,6 @@ public class NyLögController {
         }
     }
 
-    /**
-     * Aðferð virkjast þegar smellt er á lag í listanum og onValidLag kallar á þessa aðferð
-     */
     public void veljaLag() {
         int valinnIndex = fxListView.getSelectionModel().getSelectedIndex();
         if (valinnIndex >= 0) {
@@ -101,9 +96,8 @@ public class NyLögController {
     }
 
     /**
-     * Aðferð sem virkjast þegar smellt er á play/pause takkann. Stoppar/byrjar lagið
-     *
-     * @param actionEvent smellt á play/pause takkann
+     * Stýrir play/pause takkanum
+     * @param actionEvent
      */
     @FXML
     public void onPlayPause(ActionEvent actionEvent) {
@@ -125,26 +119,18 @@ public class NyLögController {
             Lag validLag = fxListView.getSelectionModel().getSelectedItem();
             setjaPlayer(validLag);
         }
-
-
     }
 
     /**
-     * Setur mynd á myndreit sem passar með laginu sem spilað er.
-     *
-     * @param myndReitur Reitur fyrir mynd með laginu
-     * @param nafnMynd   nafn jpg skráar sem fylgir með laginu
+     * Setur mynd í image view fyrir hvert lag
+     * @param myndReitur
+     * @param nafnMynd
      */
     public void setjaMynd(ImageView myndReitur, String nafnMynd) {
         Image mynd = new Image(Objects.requireNonNull(getClass().getResourceAsStream(nafnMynd)));
         myndReitur.setImage(mynd);
     }
 
-    /**
-     * Setur upp spilara fyrir lag sem á að spila
-     *
-     * @param lag lag sem á að spila
-     */
     public void setjaPlayer(Lag lag) {
         if (lag != null) {
             String hljodskraSlod = getClass().getResource(lag.getHljodskraNafn()).toString();
@@ -170,8 +156,9 @@ public class NyLögController {
     }
 
     /**
-     * Sér til þess að þegar að lag klárast að þá spilast næsta lag
+     * spilar næsta lag þegar síðasta klárast
      */
+
     public void naestaLag() {
         int currentIndex = fxListView.getSelectionModel().getSelectedIndex();
         int newIndex = currentIndex + 1;
@@ -187,10 +174,9 @@ public class NyLögController {
         }
     }
 
-
-
-
-
+    /**
+     * fer aftur á heimaskjá
+     */
     public void onHeim(){
         System.out.println("Heim");
         if (player != null) {
