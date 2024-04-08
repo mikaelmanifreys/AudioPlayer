@@ -200,7 +200,7 @@ public class ListiController {
      * Sér til þess að þegar að lag klárast að þá spilast næsta lag
      */
     public void naestaLag() {
-        if (fxShuffle.isSelected()) {
+        if (!fxShuffle.isSelected()) {
             int currentIndex = fxListView.getSelectionModel().getSelectedIndex();
             int newIndex = currentIndex + 1;
             if (newIndex >= fxListView.getItems().size()) {
@@ -215,10 +215,7 @@ public class ListiController {
             }
         } else {
             Random rand = new Random();
-            int newIndex = rand.nextInt();
-            if (newIndex >= fxListView.getItems().size()) {
-                newIndex = 0;
-            }
+            int newIndex = rand.nextInt(fxListView.getItems().size());
             fxListView.getSelectionModel().select(newIndex);
             Lag naestaLag = fxListView.getItems().get(newIndex);
             setjaPlayer(naestaLag);
