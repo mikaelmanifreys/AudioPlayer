@@ -51,6 +51,7 @@ public class PlayerController {
         ToggleGroup tungumal = new ToggleGroup();
         fxEnska.setToggleGroup(tungumal);
         fxIslenska.setToggleGroup(tungumal);
+
     }
 
     public void onNyrListi(){

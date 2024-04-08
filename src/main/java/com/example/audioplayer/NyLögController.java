@@ -6,10 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ProgressBar;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -37,6 +34,8 @@ public class NyLögController {
     private ImageView fxMynd;
     @FXML
     private ListView<Lag> fxListView;
+    public RadioButton fxIslenskaTakki;
+    public RadioButton fxEnskaTakki;
 
     private MediaPlayer player;
     private Lagalisti lagalisti;
@@ -52,6 +51,10 @@ public class NyLögController {
         logALista();
         fxPlayPause.getStyleClass().add("button-play");
         fxListView.getItems().addAll(listi);
+        fxIslenskaTakki.setSelected(true);
+        ToggleGroup tungumal = new ToggleGroup();
+        fxEnskaTakki.setToggleGroup(tungumal);
+        fxIslenskaTakki.setToggleGroup(tungumal);
 
     }
 
@@ -192,5 +195,14 @@ public class NyLögController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void onEnskaClicked2(ActionEvent actionEvent) {
+        fxHeim.setText("Home");
+    }
+
+    public void onIslenskaClicked2(ActionEvent actionEvent) {
+        fxHeim.setText("Heim");
+
     }
 }
