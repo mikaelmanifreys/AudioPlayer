@@ -25,7 +25,7 @@ public class AskrifandiDialog extends Dialog<Askrifandi> {
      * Tómur ÁskrifandiDialog smiður
      */
     public AskrifandiDialog() {
-
+        
     }
 
     public void initialize() {

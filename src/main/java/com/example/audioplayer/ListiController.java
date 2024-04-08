@@ -17,6 +17,7 @@ import vinnsla.Lagalisti;
 
 import java.io.IOException;
 import java.util.Objects;
+import java.util.Random;
 
 /**
  * ListiController klasi. Stýrir listi-view.fxml
@@ -199,17 +200,32 @@ public class ListiController {
      * Sér til þess að þegar að lag klárast að þá spilast næsta lag
      */
     public void naestaLag() {
-        int currentIndex = fxListView.getSelectionModel().getSelectedIndex();
-        int newIndex = currentIndex + 1;
-        if (newIndex >= fxListView.getItems().size()) {
-            newIndex = 0;
-        }
-        fxListView.getSelectionModel().select(newIndex);
-        Lag naestaLag = fxListView.getItems().get(newIndex);
-        setjaPlayer(naestaLag);
-        setjaMynd(myndReitur, validLag.getMyndNafn());
-        if (player != null) {
-            player.play();
+        if (fxShuffle.isSelected()) {
+            int currentIndex = fxListView.getSelectionModel().getSelectedIndex();
+            int newIndex = currentIndex + 1;
+            if (newIndex >= fxListView.getItems().size()) {
+                newIndex = 0;
+            }
+            fxListView.getSelectionModel().select(newIndex);
+            Lag naestaLag = fxListView.getItems().get(newIndex);
+            setjaPlayer(naestaLag);
+            setjaMynd(myndReitur, validLag.getMyndNafn());
+            if (player != null) {
+                player.play();
+            }
+        } else {
+            Random rand = new Random();
+            int newIndex = rand.nextInt();
+            if (newIndex >= fxListView.getItems().size()) {
+                newIndex = 0;
+            }
+            fxListView.getSelectionModel().select(newIndex);
+            Lag naestaLag = fxListView.getItems().get(newIndex);
+            setjaPlayer(naestaLag);
+            setjaMynd(myndReitur, validLag.getMyndNafn());
+            if (player != null) {
+                player.play();
+            }
         }
     }
 
@@ -224,20 +240,5 @@ public class ListiController {
     public void onIslenskaClicked2(ActionEvent actionEvent) {
         fxHeimButton.setText("Heim");
 
-    }
-
-    public void onShuffleClicked(ActionEvent actionEvent) {
-        int currentIndex = fxListView.getSelectionModel().getSelectedIndex();
-        int newIndex = currentIndex + 1;
-        if (newIndex >= fxListView.getItems().size()) {
-            newIndex = 0;
-        }
-        fxListView.getSelectionModel().select(newIndex);
-        Lag naestaLag = fxListView.getItems().get(newIndex);
-        setjaPlayer(naestaLag);
-        setjaMynd(myndReitur, validLag.getMyndNafn());
-        if (player != null) {
-            player.play();
-        }
     }
 }

@@ -19,5 +19,5 @@
     <Button fx:id="fxHeimButton" mnemonicParsing="false" onAction="#onHeim" text="Heim"/>
     <RadioButton fx:id="fxIslenska2" onAction="#onIslenskaClicked2" text="Íslenska"/>
     <RadioButton fx:id="fxEnska2" onAction="#onEnskaClicked2" text="Enska"/>
-    <CheckBox fx:id="fxShuffle" mnemonicParsing="false" text="Shuffle" onAction="#onShuffleClicked"/>
+    <CheckBox fx:id="fxShuffle" mnemonicParsing="false" text="Shuffle"/>
 </VBox>
