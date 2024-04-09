@@ -11,9 +11,11 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import vinnsla.Askrifandi;
+import vinnsla.Lagalistar;
 import vinnsla.Lagalisti;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Player controller klasi. Fylgir með heima-view.fxml
@@ -27,6 +29,8 @@ public class PlayerController {
 
     public Button fxNyLog;
     public Button fxNyrListi;
+    private Askrifandi askrifandi;
+    private ArrayList<Lagalistar> lagalistar = new ArrayList<>();
 
 
     /**
@@ -35,6 +39,7 @@ public class PlayerController {
      * @param askrifandi Notandi forritsins
      */
     public void setjaNotanda(Askrifandi askrifandi) {
+        this.askrifandi = askrifandi;
         fxLogInButton.setText(askrifandi.getNafn());
         LoggedIn = true;
     }
@@ -54,12 +59,13 @@ public class PlayerController {
 
     }
 
-    public void onNyrListi(){
-        fxLagalistar.getItems().clear();
-        Lagalisti lagalisti1 = new Lagalisti("Lagalisti 1");
-        Lagalisti lagalisti2 = new Lagalisti("Lagalisti 2");
-        Lagalisti lagalisti3 = new Lagalisti("Lagalisti 3");
-        fxLagalistar.getItems().addAll(lagalisti1, lagalisti2, lagalisti3);
+    public void onNyrListi() {
+        int fjoldilista = fxLagalistar.getItems().size() + 1;
+        Lagalisti lagalisti = new Lagalisti("Lagalisti " + fjoldilista);
+        fxLagalistar.getItems().addAll(lagalisti);
+        if (LoggedIn) {
+            setjaNotanda(askrifandi);
+        }
     }
 
 
@@ -107,9 +113,9 @@ public class PlayerController {
         }
     }
 
-    public void onNylog(ActionEvent actionEvent){
+    public void onNylog(ActionEvent actionEvent) {
         Lagalisti nyLogListi = new Lagalisti("Ný Lög");
-        try{
+        try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/nyLog.fxml"));
 
             Scene scene = new Scene(fxmlLoader.load(), 600, 604);
@@ -119,7 +125,7 @@ public class PlayerController {
             ListiController controller = fxmlLoader.getController();
             controller.setValinnListi(nyLogListi);
             stage.show();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

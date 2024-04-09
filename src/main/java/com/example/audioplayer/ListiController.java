@@ -31,6 +31,7 @@ public class ListiController {
     public RadioButton fxIslenska2;
     public RadioButton fxEnska2;
     public CheckBox fxShuffle;
+    public Button fxSkip;
     private Lag validLag;
     @FXML
     private ListView<Lag> fxListView;
@@ -200,29 +201,26 @@ public class ListiController {
      * Sér til þess að þegar að lag klárast að þá spilast næsta lag
      */
     public void naestaLag() {
+        Lag naestaLag;
         if (!fxShuffle.isSelected()) {
             int currentIndex = fxListView.getSelectionModel().getSelectedIndex();
             int newIndex = currentIndex + 1;
             if (newIndex >= fxListView.getItems().size()) {
                 newIndex = 0;
             }
-            fxListView.getSelectionModel().select(newIndex);
-            Lag naestaLag = fxListView.getItems().get(newIndex);
-            setjaPlayer(naestaLag);
-            setjaMynd(myndReitur, validLag.getMyndNafn());
-            if (player != null) {
-                player.play();
-            }
+            naestaLag = fxListView.getItems().get(newIndex);
         } else {
             Random rand = new Random();
             int newIndex = rand.nextInt(fxListView.getItems().size());
-            fxListView.getSelectionModel().select(newIndex);
-            Lag naestaLag = fxListView.getItems().get(newIndex);
-            setjaPlayer(naestaLag);
-            setjaMynd(myndReitur, validLag.getMyndNafn());
-            if (player != null) {
-                player.play();
-            }
+            naestaLag = fxListView.getItems().get(newIndex);
+        }
+        validLag = naestaLag;
+        fxListView.getSelectionModel().select(naestaLag);
+        setjaPlayer(naestaLag);
+        setjaMynd(myndReitur, validLag.getMyndNafn());
+        lagNafnReitur.setText(validLag.getLagNafn());
+        if (player != null) {
+            player.play();
         }
     }
 
@@ -237,5 +235,9 @@ public class ListiController {
     public void onIslenskaClicked2(ActionEvent actionEvent) {
         fxHeimButton.setText("Heim");
 
+    }
+
+    public void onSkipClicked(ActionEvent actionEvent) {
+        naestaLag();
     }
 }

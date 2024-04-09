@@ -61,15 +61,16 @@ public class NyLögController {
     /**
      * Bætir nýjum lögum á lista
      */
-    private void logALista(){
-        listi.add(new Lag("/css/media/All IN.mp3", "ALL IN", 159, "/css/media/herra.jpeg"));
-        listi.add(new Lag("/css/media/Skína.mp3", "Skína", 180, "/css/media/skina.jpeg"));
-        listi.add(new Lag("/css/media/sod.mp3", "Sódóma", 234, "/css/media/salin.jpeg" ));
-        listi.add(new Lag("/css/media/Fjöllin hafa vakað.mp3", "Fjöllin hafa vakað", 224, "/css/media/ego.jpeg"));
+    private void logALista() {
+        listi.add(new Lag("/css/media/AllIN.mp3", "ALL IN", 159, "/css/media/herra.jpg"));
+        listi.add(new Lag("/css/media/Skína.mp3", "Skína", 179, "/css/media/Skína.jpg"));
+        listi.add(new Lag("/css/media/sod.mp3", "Sódóma", 234, "/css/media/Sálin.jpg"));
+        listi.add(new Lag("/css/media/Fjöllinhafavakað.mp3", "Fjöllin hafa vakað", 224, "/css/media/Ego.jpg"));
     }
 
     /**
      * spilar lag þegar það er smellt 2x
+     *
      * @param mouseEvent
      */
     @FXML
@@ -96,6 +97,7 @@ public class NyLögController {
 
     /**
      * Stýrir play/pause takkanum
+     *
      * @param actionEvent
      */
     @FXML
@@ -122,6 +124,7 @@ public class NyLögController {
 
     /**
      * Setur mynd í image view fyrir hvert lag
+     *
      * @param myndReitur
      * @param nafnMynd
      */
@@ -188,7 +191,7 @@ public class NyLögController {
     /**
      * fer aftur á heimaskjá
      */
-    public void onHeim(){
+    public void onHeim() {
         System.out.println("Heim");
         if (player != null) {
             player.stop();
