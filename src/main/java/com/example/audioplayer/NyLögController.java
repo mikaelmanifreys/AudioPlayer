@@ -37,6 +37,7 @@ public class NyLögController {
     public RadioButton fxIslenskaTakki;
     public RadioButton fxEnskaTakki;
     public CheckBox fxShuffle;
+    public Button fxSkip;
 
     private MediaPlayer player;
     private Lag lag;
@@ -215,5 +216,8 @@ public class NyLögController {
     public void onIslenskaClicked2(ActionEvent actionEvent) {
         fxHeim.setText("Heim");
 
+    }
+    public void onSkipClicked(ActionEvent actionEvent) {
+        naestaLag();
     }
 }

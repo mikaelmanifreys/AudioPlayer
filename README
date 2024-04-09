@@ -1,0 +1,9 @@
+Þetta er forrit sem spilar tónlist. Hægt er að nota shuffle, breyta tungumáli, búa til spilunarlista og margt fleira.
+
+Þetta er prufuútgáfa 1 af forritinu
+
+Forritið er keyrt á java 21 með maven.
+
+    Compiler version 3.10.1, source 9, target 9
+    JavaFx version 17.0.2
+    JavaFx maven plugin version 0.0.8
