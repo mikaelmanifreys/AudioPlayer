@@ -20,8 +20,7 @@ public class AskrifandiDialog extends Dialog<Askrifandi> {
     public TextField fxNafnField;
     public RadioButton fxIslenska3;
     public RadioButton fxEnska3;
-    @FXML
-    private TextField fxLykilorð;
+    public PasswordField fxLykilorð;
 
     /**
      * Tómur ÁskrifandiDialog smiður
