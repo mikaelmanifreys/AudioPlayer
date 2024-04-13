@@ -41,8 +41,6 @@ public class NyLögController {
 
     private MediaPlayer player;
     private Lag lag;
-    public AskrifandiDialog askrifandi;
-    private PlayerController controller;
 
     public ObservableList<Lag> listi = FXCollections.observableArrayList();
 
@@ -123,6 +121,7 @@ public class NyLögController {
         }
     }
 
+
     /**
      * Setur mynd í image view fyrir hvert lag
      *
@@ -163,32 +162,28 @@ public class NyLögController {
      */
 
     public void naestaLag() {
+        Lag naestaLag;
         if (!fxShuffle.isSelected()) {
             int currentIndex = fxListView.getSelectionModel().getSelectedIndex();
             int newIndex = currentIndex + 1;
             if (newIndex >= fxListView.getItems().size()) {
                 newIndex = 0;
             }
-            fxListView.getSelectionModel().select(newIndex);
-            Lag naestaLag = fxListView.getItems().get(newIndex);
-            setjaPlayer(naestaLag);
-            setjaMynd(fxMynd, lag.getMyndNafn());
-            if (player != null) {
-                player.play();
-            }
+            naestaLag = fxListView.getItems().get(newIndex);
         } else {
             Random rand = new Random();
             int newIndex = rand.nextInt(fxListView.getItems().size());
-            fxListView.getSelectionModel().select(newIndex);
-            Lag naestaLag = fxListView.getItems().get(newIndex);
-            setjaPlayer(naestaLag);
-            setjaMynd(fxMynd, lag.getMyndNafn());
-            if (player != null) {
-                player.play();
-            }
+            naestaLag = fxListView.getItems().get(newIndex);
+        }
+        lag = naestaLag;
+        fxListView.getSelectionModel().select(naestaLag);
+        setjaPlayer(naestaLag);
+        setjaMynd(fxMynd, lag.getMyndNafn());
+        fxLagNafn.setText(lag.getLagNafn());
+        if (player != null) {
+            player.play();
         }
     }
-
     /**
      * fer aftur á heimaskjá
      */
