@@ -21,6 +21,7 @@ public class AskrifandiDialog extends Dialog<Askrifandi> {
     public RadioButton fxIslenska3;
     public RadioButton fxEnska3;
     public PasswordField fxLykilorð;
+    public Button fxHaetta;
 
     /**
      * Tómur ÁskrifandiDialog smiður
@@ -61,19 +62,29 @@ public class AskrifandiDialog extends Dialog<Askrifandi> {
         }
     }
 
-
     public void onIslenskaClicked3(ActionEvent actionEvent) {
         fxLoginButton.setText("Skrá Inn");
         fxNafnField.setPromptText("Notendanafn");
         fxLykilorð.setPromptText("Lykilorð");
-
-
+        fxHaetta.setText("Hætta við");
     }
 
     public void onEnskaClicked3(ActionEvent actionEvent) {
         fxLoginButton.setText("Log In");
         fxNafnField.setPromptText("Username");
         fxLykilorð.setPromptText("Password");
-
+        fxHaetta.setText("Cancel");
+    }
+    public void onHaetta(ActionEvent actionEvent){
+        System.out.println("Hætta við");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/heima-view.fxml"));
+            Stage stage = (Stage) fxHaetta.getScene().getWindow();
+            Scene scene = new Scene(loader.load());
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

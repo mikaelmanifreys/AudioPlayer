@@ -41,6 +41,8 @@ public class NyLögController {
 
     private MediaPlayer player;
     private Lag lag;
+    public AskrifandiDialog askrifandi;
+    private PlayerController controller;
 
     public ObservableList<Lag> listi = FXCollections.observableArrayList();
 
@@ -56,7 +58,6 @@ public class NyLögController {
         ToggleGroup tungumal = new ToggleGroup();
         fxEnskaTakki.setToggleGroup(tungumal);
         fxIslenskaTakki.setToggleGroup(tungumal);
-
     }
 
     /**
@@ -91,7 +92,6 @@ public class NyLögController {
             fxPlayPause.getStyleClass().add("button-pause");
             if (lag.getMyndNafn() != null) {
                 setjaMynd(fxMynd, lag.getMyndNafn());
-
             }
         }
     }
@@ -199,7 +199,6 @@ public class NyLögController {
         }
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/heima-view.fxml"));
-
             Stage stage = (Stage) fxHeim.getScene().getWindow();
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
@@ -209,15 +208,7 @@ public class NyLögController {
         }
     }
 
-    public void onEnskaClicked2(ActionEvent actionEvent) {
-        fxHeim.setText("Home");
-    }
-
-    public void onIslenskaClicked2(ActionEvent actionEvent) {
-        fxHeim.setText("Heim");
-
-    }
-    public void onSkipClicked(ActionEvent actionEvent) {
-        naestaLag();
-    }
+    public void onEnskaClicked2(ActionEvent actionEvent) {fxHeim.setText("Home");}
+    public void onIslenskaClicked2(ActionEvent actionEvent) {fxHeim.setText("Heim");}
+    public void onSkipClicked(ActionEvent actionEvent) {naestaLag();}
 }

@@ -4,12 +4,18 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="102.0" prefWidth="150.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.audioplayer.AskrifandiDialog">
-    <TextField fx:id="fxNafnField" promptText="Nafn" />
-   <PasswordField fx:id="fxLykilorð" promptText="Lykiloð" />
-    <Button fx:id="fxLoginButton" mnemonicParsing="false" onAction="#onLogin" text="Skrá inn" />
-    <RadioButton fx:id="fxIslenska3" mnemonicParsing="false" onAction="#onIslenskaClicked3" selected="true" text="Íslenska" />
-    <RadioButton fx:id="fxEnska3" mnemonicParsing="false" onAction="#onEnskaClicked3" text="Enska" />
+<VBox prefHeight="240.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.audioplayer.AskrifandiDialog">
+   <AnchorPane prefHeight="241.0" prefWidth="320.0">
+      <children>
+          <TextField fx:id="fxNafnField" layoutX="78.0" layoutY="18.0" promptText="Nafn" />
+         <PasswordField fx:id="fxLykilorð" layoutX="78.0" layoutY="50.0" promptText="Lykilorð" />
+          <Button fx:id="fxLoginButton" defaultButton="true" layoutX="62.0" layoutY="109.0" mnemonicParsing="false" onAction="#onLogin" text="Skrá inn" AnchorPane.leftAnchor="62.0" AnchorPane.rightAnchor="197.0" />
+         <Button fx:id="fxHaetta" cancelButton="true" layoutX="189.0" layoutY="109.0" mnemonicParsing="false" onAction="#onHaetta" text="Hætta við" AnchorPane.leftAnchor="189.0" />
+          <RadioButton fx:id="fxIslenska3" layoutX="125.0" layoutY="174.0" mnemonicParsing="false" onAction="#onIslenskaClicked3" selected="true" text="Íslenska" />
+          <RadioButton fx:id="fxEnska3" layoutX="125.0" layoutY="202.0" mnemonicParsing="false" onAction="#onEnskaClicked3" text="Enska" />
+      </children>
+   </AnchorPane>
 </VBox>
