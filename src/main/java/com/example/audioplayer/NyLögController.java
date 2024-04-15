@@ -183,6 +183,7 @@ public class NyLögController {
             player.play();
         }
     }
+
     /**
      * fer aftur á heimaskjá
      */
@@ -205,10 +206,16 @@ public class NyLögController {
     public void onEnskaClicked2(ActionEvent actionEvent) {
         fxHeim.setText("Home");
         fxSkip.setText("Skip");
+        fxShuffle.setText("Shuffle");
     }
+
     public void onIslenskaClicked2(ActionEvent actionEvent) {
         fxHeim.setText("Heim");
         fxSkip.setText("Næsta Lag");
+        fxShuffle.setText("Stokka");
     }
-    public void onSkipClicked(ActionEvent actionEvent) {naestaLag();}
+
+    public void onSkipClicked(ActionEvent actionEvent) {
+        naestaLag();
+    }
 }
