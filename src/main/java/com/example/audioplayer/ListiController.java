@@ -54,6 +54,7 @@ public class ListiController {
         fxIslenska2.setToggleGroup(tungumal);
         fxPlayPause.getStyleClass().add("button-play");
 
+
     }
 
     /**
@@ -225,6 +226,7 @@ public class ListiController {
     }
 
     public boolean isIslenskaSelected() {
+        setPlayerController(playerController);
         return playerController.isIslenskaSelected();
     }
 
@@ -243,5 +245,7 @@ public class ListiController {
 
     public void onSkipClicked(ActionEvent actionEvent) {
         naestaLag();
+        fxPlayPause.getStyleClass().removeAll("button-play");
+        fxPlayPause.getStyleClass().add("button-pause");
     }
 }
