@@ -231,11 +231,13 @@ public class ListiController {
     public void onEnskaClicked2(ActionEvent actionEvent) {
         fxHeimButton.setText("Home");
         fxSkip.setText("Skip");
+        fxShuffle.setText("Shuffle");
     }
 
     public void onIslenskaClicked2(ActionEvent actionEvent) {
         fxHeimButton.setText("Heim");
         fxSkip.setText("Næsta Lag");
+        fxShuffle.setText("Stokka");
 
     }
 
