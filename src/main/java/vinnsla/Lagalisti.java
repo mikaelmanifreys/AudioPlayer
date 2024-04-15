@@ -49,8 +49,6 @@ public class Lagalisti {
         } else if (this.nafn.equals("Lagalisti 3")) {
             listi.add(new Lag("/css/media/AllIN.mp3", "ALL IN", 159, "/css/media/herra.jpg"));
             listi.add(new Lag("/css/media/Skína.mp3", "Skína", 180, "/css/media/skina.jpeg"));
-
         }
-
     }
 }

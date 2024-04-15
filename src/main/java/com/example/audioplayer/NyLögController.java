@@ -121,7 +121,6 @@ public class NyLögController {
         }
     }
 
-
     /**
      * Setur mynd í image view fyrir hvert lag
      *
@@ -203,7 +202,13 @@ public class NyLögController {
         }
     }
 
-    public void onEnskaClicked2(ActionEvent actionEvent) {fxHeim.setText("Home");}
-    public void onIslenskaClicked2(ActionEvent actionEvent) {fxHeim.setText("Heim");}
+    public void onEnskaClicked2(ActionEvent actionEvent) {
+        fxHeim.setText("Home");
+        fxSkip.setText("Skip");
+    }
+    public void onIslenskaClicked2(ActionEvent actionEvent) {
+        fxHeim.setText("Heim");
+        fxSkip.setText("Næsta Lag");
+    }
     public void onSkipClicked(ActionEvent actionEvent) {naestaLag();}
 }
